@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCredits } from 'services/API';
-//import { List, Item, Img, Name, Character } from './Cast.styled';
+import { List, Item, Img, Name, Character } from './Cast.styled';
 
 const Cast = () => {
   const [cast, setCast] = useState(null);

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
-export const MovieList = styled.ul`
+export const List = styled.ul`
   margin-bottom: 40px;
   display: flex;
   justify-content: space-between;

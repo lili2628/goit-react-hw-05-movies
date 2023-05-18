@@ -1,4 +1,4 @@
-//import { Container, Img, Title, Wrapper, Year, Description, Text } from './MovieCard.styled';
+import { Container, Img, Title, Wrapper, Year, Description, Text } from './Card.styled';
 
 const Card = ({ movie }) => {
   const { poster_path, title, release_date, vote_average, overview, genres } = movie;

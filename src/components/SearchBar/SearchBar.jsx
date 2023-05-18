@@ -1,4 +1,4 @@
-//import { Form, Input, Button } from './SearchBox.styled';
+import { Form, Input, Button } from './SearchBar.styled';
 
 const SearchBar = ({ onChange, onSubmit }) => {
   return (

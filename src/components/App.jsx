@@ -7,7 +7,9 @@ import 'react-toastify/dist/ReactToastify.css';
 const SharedLayout = lazy(() => import("./SharedLayout/SharedLayout"));
 const MovieDetails = lazy(() => import("pages/MovieDetails"));
 const Movies = lazy(() => import("pages/Movies"));
-const Home= lazy(() => import("pages/Home"));
+const Home = lazy(() => import("pages/Home"));
+const Cast = lazy(() => import("components/Cast"));
+const Reviews = lazy(() => import("components/Reviews"));
 
 
 const App = () => {

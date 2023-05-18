@@ -1,7 +1,7 @@
-import { getMovieReviews } from 'services/fetchMovies';
+import { getMovieReviews } from 'services/API';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-//import { List, Author, Text } from './Reviews.styled';
+import { List, Author, Text } from './Reviews.styled';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState(null);
