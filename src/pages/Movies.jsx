@@ -1,33 +1,50 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { getMovies } from "../../services/API";
-import { MovieList } from "../components/ProductList";
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { searchMovies } from 'services/API';
+import SearchBar from 'components/SearchBar';
+import MovieList from 'components/MovieList';
 
-const Movies = () => {
-    const movies = getMovies();
-    const navigate = useNavigate();
+function Movies() {
+    const [movies, setMovies] = useState([]);
+    const [query, setQuery] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
-    const movieId = searchParams.get("id");
-    const movieName = searchParams.get("name") ?? "";
 
-    const visibleMovies = movies.filter((movie) => movie.name.toLowerCase().includes(movieName.toLocaleLowerCase));
+    useEffect(() => {
+        const query = searchParams.get('query') ?? '';
+        
+        if (!query) return;
+  
+        searchMovies(query)
+            .then(({ results }) => {
+                if (results.length === 0) {
+                    console.log('error');
+                    return;
+                }
+                setMovies(results);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }, [searchParams]);
 
-    const updateQueryString = (name) => {
-        const nextParams = name !== "" ? { name } : {};
-        setSearchParams(nextParams);
+    const onInputChange = e => {
+        setQuery(e.target.value);
     }
-    
+
+    const onFormSubmit = e => {
+        e.preventDefault();
+
+        setSearchParams(query !== '' ? { query } : {});
+    };
 
     return (
-        <main>
-            <input 
-                type="text"
-                value={movieName}
-                onChange={updateQueryString}
-            />
-        <MovieList movies={visibleMovies} />
-        </main>
+        <>
+            <SearchBar onSubmit={onFormSubmit} onChange={onInputChange} />
+            <MovieList movies={movies} />
+        </>
     );
+    
+      
 };
-
 
 export default Movies;

@@ -1,23 +1,46 @@
-import { useParams, Outlet, useLocation } from "react-router-dom";
-import { getMovieById } from "../../services/API";
+import { useState, useEffect, Suspense } from 'react';
+import { useParams, Outlet, useLocation } from 'react-router-dom';
+import { getMovieDetails } from 'services/API';
+import { Card } from 'components/Card/Card';
+//import { BackLink, AddInfo, Container } from './MovieDetails.styled';
 
-const MovieDetails = () => {
-    const { movieId } = useParams();
-    const movie = getMovieById(movieId);
-    const location = useLocation();
+export const MovieDetails = () => {
+  const [movieDetails, setMovieDetails] = useState(null);
+  const { movieId } = useParams();
+  const location = useLocation();
 
-    return (
-        <div>
-            <Link to={location.state?.from ?? "/movies"}>Back to movies</Link>
-            <h2>
-                Movie - {movie.name} - {movieId}
-            </h2>;
-            <Suspense fallback={<div>Loading...</div>}>
-                <Outlet />
-            </Suspense>
-        </div>
-        
-    );
+  useEffect(() => {
+      getMovieDetails(movieId)
+          .then(({ results }) => {
+                setMovieDetails(results);
+           })
+           .catch(error => {
+                console.log(error);
+           });
+  }, [movieId]);
+
+  if (!movieDetails) {
+    return null;
+    };
+
+  const backLink = location.state?.from ?? '/';
+
+  return (
+    <>
+      <BackLink to={backLink}>← Go back</BackLink>
+      <MovieCard movie={movieDetails} />
+      <Container>
+        <AddInfo to={'cast'} state={{ from: backLink }}>
+          Cast
+        </AddInfo>
+        <AddInfo to={'reviews'} state={{ from: backLink }}>
+          Reviews
+        </AddInfo>
+      </Container>
+
+      <Suspense>
+        <Outlet />
+      </Suspense>
+    </>
+  );
 };
-
-export default MovieDetails;

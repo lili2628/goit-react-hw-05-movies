@@ -1,6 +1,8 @@
-import { lazy, Suspense } from "react";
-import { useState } from "react";
-import { Routes, Route, useSearchParams } from "react-router-dom";
+import { lazy, Suspense, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const SharedLayout = lazy(() => import("./SharedLayout/SharedLayout"));
 const MovieDetails = lazy(() => import("pages/MovieDetails"));
@@ -8,11 +10,7 @@ const Movies = lazy(() => import("pages/Movies"));
 const Home= lazy(() => import("pages/Home"));
 
 
-export const App = () => {
-  //const [movie, setMovie] = useState(null); 
-  //const [searchParams, setSearchParams] = useSearchParams();
-  //const movieName = searchParams.get("name");
-
+const App = () => {
   return (
       <Routes>
         <Route path="/" element={<SharedLayout />} >
@@ -22,8 +20,10 @@ export const App = () => {
               <Route path="cast" element={<Cast />} />
               <Route path="reviews" element={<Reviews />} />
           </Route> 
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<Home />} />
         </Route>
       </Routes>
   );
 };
+
+export default App;
