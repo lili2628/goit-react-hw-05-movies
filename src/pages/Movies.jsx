@@ -12,19 +12,12 @@ function Movies() {
     useEffect(() => {
         const query = searchParams.get('query') ?? '';
         
-        if (!query) return;
+        if (!query) {
+            return;
+        };
   
         searchMovies(query)
-            .then(({ results }) => {
-                if (results.length === 0) {
-                    console.log('error');
-                    return;
-                }
-                setMovies(results);
-            })
-            .catch(error => {
-                console.log(error);
-            });
+            .then(setMovies);   
     }, [searchParams]);
 
     const onInputChange = e => {
@@ -43,8 +36,6 @@ function Movies() {
             <MovieList movies={movies} />
         </>
     );
-    
-      
 };
 
 export default Movies;

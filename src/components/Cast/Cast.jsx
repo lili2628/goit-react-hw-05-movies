@@ -10,12 +10,7 @@ const Cast = () => {
 
   useEffect(() => {
       getMovieCredits(movieId)
-          .then(({ cast }) => {
-                setCast(cast);
-           })
-           .catch(error => {
-                console.log(error);
-           });
+          .then(setCast);
   }, [movieId]);
 
   if (!cast) {

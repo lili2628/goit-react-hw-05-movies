@@ -1,6 +1,7 @@
 import { Form, Input, Button } from './SearchBar.styled';
+import PropTypes from 'prop-types';
 
-const SearchBar = ({ onChange, onSubmit }) => {
+function SearchBar ({ onChange, onSubmit }) {
   return (
     <Form onSubmit={onSubmit}>
       <Input type="text" onChange={onChange} />
@@ -11,3 +12,8 @@ const SearchBar = ({ onChange, onSubmit }) => {
 };
 
 export default SearchBar;
+
+SearchBar.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};

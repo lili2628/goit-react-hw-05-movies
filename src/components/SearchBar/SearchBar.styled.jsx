@@ -12,14 +12,13 @@ export const Input = styled.input`
   border-radius: 4px;
 
   font-size: 18px;
-  color: var(--secondary);
+  color: #3d237f;
 
-  box-shadow: var(--inset-shadow);
-  border: none;
+  box-shadow: #674ea7;
+  border: 2px solid #250f5c;
 
   :focus {
-    outline: 3px solid var(--bg);
-    box-shadow: 0px 0px 0px 6px var(--accent);
+    outline: 3px solid #674ea7;
   }
 `;
 
@@ -30,19 +29,19 @@ export const Button = styled.button`
   font-size: 22px;
 
   border-radius: 4px;
+  border: 2px solid #250f5c;
 
-  border: none;
-  color: var(--accent);
-  background-color: var(--bg);
-  box-shadow: var(--main-shadow);
+  color: #3d237f;
+  background-color: #d9d2e9;
+  box-shadow: #b4a7d6;
 
   transition: all 200ms ease-in-out;
   cursor: pointer;
 
   :hover,
   :focus-visible {
-    color: var(--bg);
-    background-color: var(--accent);
+    color: #d9d2e9;
+    background-color: #3d237f;
   }
 
   :focus {

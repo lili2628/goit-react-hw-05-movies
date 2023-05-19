@@ -3,19 +3,14 @@ import { useParams, Outlet, useLocation, Link, NavLink } from 'react-router-dom'
 import { getMovieDetails } from 'services/API';
 import Card from 'components/Card/Card';
 
-export const MovieDetails = () => {
+function MovieDetails () {
   const [movieDetails, setMovieDetails] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
 
   useEffect(() => {
-      getMovieDetails(movieId)
-          .then(({ results }) => {
-                setMovieDetails(results);
-           })
-           .catch(error => {
-                console.log(error);
-           });
+    getMovieDetails(movieId)
+      .then(setMovieDetails);
   }, [movieId]);
 
   if (!movieDetails) {
@@ -42,4 +37,6 @@ export const MovieDetails = () => {
       </Suspense>
     </>
   );
-};
+}
+
+export default MovieDetails;

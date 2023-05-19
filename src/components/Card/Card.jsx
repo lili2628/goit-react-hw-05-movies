@@ -1,6 +1,7 @@
 import { Container, Img, Title, Wrapper, Year, Description, Text } from './Card.styled';
+import PropTypes from 'prop-types';
 
-const Card = ({ movie }) => {
+function Card ({ movie }) {
   const { poster_path, title, release_date, vote_average, overview, genres } = movie;
 
   const imgBaseUrl = 'https://image.tmdb.org/t/p/w500/';
@@ -28,6 +29,19 @@ const Card = ({ movie }) => {
       </Wrapper>
     </Container>
   );
-};
+}
 
 export default Card;
+
+Card.propTypes = {
+  movie: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string,
+    release_date: PropTypes.string,
+    vote_average: PropTypes.number.isRequired,
+    genres: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string,
+    })).isRequired,
+    overview: PropTypes.string.isRequired,
+  }).isRequired,
+};
