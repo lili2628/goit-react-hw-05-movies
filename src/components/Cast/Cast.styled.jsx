@@ -23,5 +23,13 @@ export const Name = styled.p`
 `;
 
 export const Character = styled.p`
-  color: var(--accent);
+  color: #312754;
+`;
+
+export const Empty = styled.p`
+  color: #312754;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
 `;

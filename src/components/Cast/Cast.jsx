@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCredits } from 'services/API';
-import { List, Item, Img, Name, Character } from './Cast.styled';
+import { List, Item, Img, Name, Character, Empty } from './Cast.styled';
 
 const Cast = () => {
   const [cast, setCast] = useState(null);
@@ -20,7 +20,7 @@ const Cast = () => {
 
   return (
     <List>
-      {cast.length === 0 && <p>Nothing</p>}
+      {cast.length === 0 && <Empty>Nothing</Empty>}
 
       {cast.map(({ id, profile_path, name, character }) => {
         if (profile_path) {

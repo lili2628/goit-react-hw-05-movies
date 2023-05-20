@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
 export const Box = styled.header`
-  background-color: var(--bg);
-  box-shadow: var(--main-shadow);
+  background-color: #d5a6bd;
+  box-shadow: #aa7a92;
 `;
 
 export const Container = styled.div`
@@ -16,9 +16,11 @@ export const Nav = styled.nav`
   margin-bottom: 20px;
   padding: 30px 0;
   max-width: 100%;
+
+  display: flex;
 `;
 
-export const NavList = styled.ul`
+export const NavList = styled.div`
   display: flex;
   gap: 20px;
 `;
@@ -33,20 +35,4 @@ export const NavListLink = styled(NavLink)`
   border-radius: 4px;
 
   transition: all 200ms ease-in-out;
-
-  &.active {
-    color: var(--bg);
-    background-color: var(--accent);
-    box-shadow: var(--main-shadow);
-  }
-
-  :hover:not(.active),
-  :focus-visible:not(.active) {
-    color: var(--accent);
-  }
-
-  :focus {
-    outline: 3px solid var(--bg);
-    box-shadow: 0px 0px 0px 6px var(--accent);
-  }
 `;

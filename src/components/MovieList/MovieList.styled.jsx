@@ -12,11 +12,11 @@ export const List = styled.ul`
 export const MovieItem = styled.li`
   flex-basis: calc((100% - 100px) / 5);
   max-height: 100%;
-  min-height: 390px;
+  min-height: 300px;
   border-radius: 8px;
   overflow: hidden;
-  background-color: var(--bg);
-  box-shadow: var(--main-shadow);
+  background-color: #d9d2e9;
+  box-shadow: #b3abc4;
 `;
 
 export const MovieLink = styled(Link)`
@@ -31,7 +31,7 @@ export const MovieLink = styled(Link)`
   }
 
   &:hover p {
-    color: var(--accent);
+    color: #a64d79;
   }
 `;
 

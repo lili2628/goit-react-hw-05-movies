@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 
 
+
 const SharedLayout = lazy(() => import("./SharedLayout/SharedLayout"));
 const MovieDetails = lazy(() => import("pages/MovieDetails"));
 const Movies = lazy(() => import("pages/Movies"));

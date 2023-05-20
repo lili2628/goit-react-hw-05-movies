@@ -39,13 +39,12 @@ export const Button = styled.button`
   cursor: pointer;
 
   :hover,
-  :focus-visible {
+  :focus {
     color: #d9d2e9;
     background-color: #3d237f;
+    outline: 3px solid #4c1130;
+    box-shadow: 0px 0px 0px 6px #a64d79;
   }
 
-  :focus {
-    outline: 3px solid var(--bg);
-    box-shadow: 0px 0px 0px 6px var(--accent);
-  }
+
 `;

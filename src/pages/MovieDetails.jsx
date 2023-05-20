@@ -1,7 +1,8 @@
 import { useState, useEffect, Suspense } from 'react';
-import { useParams, Outlet, useLocation, Link, NavLink } from 'react-router-dom';
+import { useParams, Outlet, useLocation, Link } from 'react-router-dom';
 import { getMovieDetails } from 'services/API';
 import Card from 'components/Card/Card';
+import { Box, Option } from './MovieDetails.styled';
 
 function MovieDetails () {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -23,14 +24,14 @@ function MovieDetails () {
     <>
       <Link to={backLink}>← Go back</Link>
       <Card movie={movieDetails} />
-      <>
-        <NavLink to={'cast'} state={{ from: backLink }}>
+      <Box>
+        <Option to={'cast'} state={{ from: backLink }}>
           Cast
-        </NavLink>
-        <NavLink to={'reviews'} state={{ from: backLink }}>
+        </Option>
+        <Option to={'reviews'} state={{ from: backLink }}>
           Reviews
-        </NavLink>
-      </>
+        </Option>
+      </Box>
 
       <Suspense>
         <Outlet />

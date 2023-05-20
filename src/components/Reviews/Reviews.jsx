@@ -1,7 +1,7 @@
 import { getMovieReviews } from 'services/API';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { List, Author, Text } from './Reviews.styled';
+import { List, Author, Text, Empty } from './Reviews.styled';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState(null);
@@ -19,7 +19,7 @@ const Reviews = () => {
 
   return (
     <List>
-      {reviews.length === 0 && <p>Nothing</p>}
+      {reviews.length === 0 && <Empty>Nothing</Empty>}
 
       {reviews.map(({ id, content, author }) => (
         <li key={id}>
