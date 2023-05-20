@@ -10,11 +10,21 @@ export const List = styled.ul`
 
 export const Item = styled.li`
   flex-basis: 150px;
+  width: 200px;
+  height: 300px;
+
+  position: relative;
+`;
+
+export const Box = styled.div`
+  position: absolute; 
+	bottom:0;
 `;
 
 export const Img = styled.img`
   margin-bottom: 5px;
   border-radius: 4px;
+  width: 100%;
 `;
 
 export const Name = styled.p`

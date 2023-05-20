@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCredits } from 'services/API';
-import { List, Item, Img, Name, Character, Empty } from './Cast.styled';
+import { List, Item, Img, Name, Character, Empty, Box } from './Cast.styled';
 
 const Cast = () => {
   const [cast, setCast] = useState(null);
@@ -27,20 +27,20 @@ const Cast = () => {
           return (
             <Item key={id}>
               <Img src={imgBaseUrl.concat(profile_path)} alt='' />
-              <div>
+              <Box>
                 <Name>{name}</Name>
                 <Character>{character}</Character>
-              </div>
+              </Box>
             </Item>
           );
         } else {
           return (
             <Item key={id}>
               <Img src={noImage} alt='' />
-              <div>
+              <Box>
                 <Name>{name}</Name>
                 <Character>{character}</Character>
-              </div>
+              </Box>
             </Item>
           );
         }
